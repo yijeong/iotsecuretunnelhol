@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>IoT 보안 터널링 구성 on AWS IoT Secure Tunnel 구성</title>
+    <link>/lab3/</link>
+    <description>Recent content in IoT 보안 터널링 구성 on AWS IoT Secure Tunnel 구성</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ko-KR</language>
+    
+	<atom:link href="/lab3/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>IoT 보안 터널링</title>
+      <link>/lab3/module1/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/lab3/module1/</guid>
+      <description>AWS IoT 보안 터널링 원격 사이트의 제한된 방화벽 뒤에 디바이스를 배포하는 경우 문제에 대한 트러블슈팅, 구성 업데이트 및 기타 운영 작업을 위해 해당 디바이스에 액세스할 수 있는 방법으로, AWS IoT에서 관리하는 보안 연결을 통해 원격 디바이스에 양방향 통신을 설정할 수 있습니다. 기존 인바운드 방화벽 규칙을 업데이트할 필요가 없으므로 원격 사이트의 방화벽 규칙에서 제공하는 보안 수준을 동일하게 유지할 수 있습니다.
+워크샵에서는 소스 및 대상지가 모두 VPC (SFworkshop VPC, default VPC)로 시뮬레이션 되었다는 것을 기억하십시오.</description>
+    </item>
+    
+    <item>
+      <title>IoT 보안 터널링 구성(수동)</title>
+      <link>/lab3/module2/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/lab3/module2/</guid>
+      <description>소스와 대상 디바이스에서 로컬 프록시 설치하기   소스 디바이스 (admin 인스턴스)와 대상 디바이스 (GGAD 인스턴스)에 로컬 프록시를 설치하기 위해서는 다양한 dependency 소프트웨어를 설치해야하고, 그에 따른 시간이 오래 걸립니다. 따라서 워크샵 펀의상 이 부분은 이미 구성이 되어있는 AMI로 대체되었습니다.
+ 세부적인 과정이 궁금한 사용자들을 위해 AMI를 구성했던 부트스트랩 스크립트를 참고해주시기 바랍니다. 부트스트랩 스크립트보기#!/bin/bashsudo apt-get update# 파이썬 설치 sudo apt-get -y install python3-pipsudo python3 -m pip install AWSIoTPythonSDKsudo update-alternatives --install /usr/bin/python python /usr/bin/python3 3sudo update-alternatives --config python# 폴더 생성mkdir ~/dependenciescd ~/dependencies# local proxy 설치를 위한 dependency 설치 sudo apt-get -y install build-essentialsudo apt-get -y install cmakesudo apt-get -y install zlibcsudo apt-get -y install libssl-devsudo apt-get -y install unzip## Boost dependency 파일 설치 wget https://dl.</description>
+    </item>
+    
+    <item>
+      <title>IoT 보안 터널링 구성(자동)</title>
+      <link>/lab3/module3/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/lab3/module3/</guid>
+      <description>AWS IoT 보안 터널링 - 자동 구성 모듈 3에서 진행했던 보안 터널 구성은 직관적이기는 하지만 매번 토큰을 각각의 디바이스에 업로드 해주어야한다는 불편함이 있습니다. 이번 모듈 4에서는 AWS CLI open-tunnel 명령어를 이용하면 remote device에 token을 미리 복사해 주지 않아도 되고, Remote device에 미리 local proxy를 설치만 미리 해놓고 ‘실행해 놓지 않아도’ 되는 자동 구성 방법에 대해서 알아봅니다.
+소스와 대상 디바이스에서 로컬 프록시 설치하기   소스 디바이스 (admin 인스턴스)와 대상 디바이스 (GGAD 인스턴스)에 로컬 프록시를 설치하기 위해서는 다양한 dependency 소프트웨어를 설치해야하고, 그에 따른 시간이 오래 걸립니다.</description>
+    </item>
+    
+    <item>
+      <title>내용 정리</title>
+      <link>/lab3/module4/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/lab3/module4/</guid>
+      <description>정리해보겠습니다  소스와 대상 디바이스에 로컬 프록시를 설치가 되어있습니다. 대상 디바이스 (GGAD인스턴스)에서는 AWS에서 예약된 topic($aws/things/[사물이름]/tunnels/notify)의 메시지를 구독(subscribe)하는 스크립트가 실행중입니다. (proxy-demo.py) 여기에 aws cli 권한이 있는 사용자가 open-tunnel 명령어(aws iotsecuretunneling open-tunnel --destination-config --region us-east-1 thingName=SFworkshop_thing,services=ssh)로 새로운 보안 터널과 두개의 토큰을 생성합니다. proxy-demo.py는 메시지가 수신되면 destination 용 토큰을 받아 로컬 프록시를 실행합니다. 로컬 프록시를 실행하는 명령어는 다음과 같습니다. ./localproxy -r us-east-1 -d localhost:22 -t &amp;lt;destination_client_access_token&amp;gt; 소스 디바이스 (admin 인스턴스)에서도 ./localproxy -r us-east-1 -s 5000 -t &amp;lt;source_client_access_token&amp;gt; 와 같이 로컬 프록시를 가동합니다.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,2 +1,2 @@
-# iotsecuretunnelhol
-aws iot secure tunneling hands on lab guide
+# awsiotlabs
+Hands on labs for AWS IoT Services

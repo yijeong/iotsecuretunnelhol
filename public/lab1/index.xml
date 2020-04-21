@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>환경 구성 on AWS IoT Secure Tunnel 구성</title>
+    <link>/lab1/</link>
+    <description>Recent content in 환경 구성 on AWS IoT Secure Tunnel 구성</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ko-KR</language>
+    
+	<atom:link href="/lab1/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>환경 구성</title>
+      <link>/lab1/module1/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/lab1/module1/</guid>
+      <description>사전 준비 사항  AWS 계정 및 IAM User : IAM, AWS IoT, Amazon EC2 에 대한 권한이 있는 IAM User를 사용해야 합니다. 브라우저: 최신 버전의 크롬, 파이어폭스  리전 선택  AWS 리전: 이번 실습은 버지니아 북부 (us-east-1) 리전에서 실행합니다.  리소스 생성 EC2 키페어 생성 (이미 생성된 경우 이 단계 생략 가능)   EC2 키페어는 EC2인스턴스 생성을 위해 필요한 항목이므로, CloudFormation 템플릿을 실행하기에 앞서 EC2 키페어를 생성합니다.</description>
+    </item>
+    
+  </channel>
+</rss>

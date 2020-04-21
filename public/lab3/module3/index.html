@@ -1,0 +1,955 @@
+<!DOCTYPE html>
+<html lang="ko" class="js csstransforms3d">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="Hugo 0.64.1" />
+    <meta name="description" content="AWS IoT Secure Tunnel 구성">
+<meta name="author" content="Yijeong Cho">
+
+    <link rel="icon" href="/images/favicon.png" type="image/png">
+
+    <title>IoT 보안 터널링 구성(자동) :: AWS IoT Secure Tunnel 구성</title>
+
+    
+    <link href="/css/nucleus.css?1587436142" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1587436142" rel="stylesheet">
+    <link href="/css/hybrid.css?1587436142" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1587436142" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1587436142" rel="stylesheet">
+    <link href="/css/auto-complete.css?1587436142" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1587436142" rel="stylesheet">
+    <link href="/css/theme.css?1587436142" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1587436142" rel="stylesheet">
+    
+      <link href="/css/theme-aws.css?1587436142" rel="stylesheet">
+    
+
+    <script src="/js/jquery-3.3.1.min.js?1587436142"></script>
+
+    <style>
+      :root #header + #content > #left > #rlblock_left{
+          display:none !important;
+      }
+      
+    </style>
+    
+  </head>
+  <body class="" data-url="/lab3/module3/">
+    <nav id="sidebar" class="showVisitedLinks">
+
+
+
+  <div id="header-wrapper">
+    <div id="header">
+      <a id="logo" href="/">
+	<img src="/webbasedworkshop/images/logo.png" height="70px"/>
+</a>
+
+    </div>
+    
+        <div class="searchbox">
+    <label for="search-by"><i class="fas fa-search"></i></label>
+    <input data-search-input id="search-by" type="search" placeholder="">
+    <span data-search-clear=""><i class="fas fa-times"></i></span>
+</div>
+
+<script type="text/javascript" src="/js/lunr.min.js?1587436142"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1587436142"></script>
+<script type="text/javascript">
+    
+        var baseurl = "";
+    
+</script>
+<script type="text/javascript" src="/js/search.js?1587436142"></script>
+
+    
+  </div>
+
+    <div class="highlightable">
+    <ul class="topics">
+
+        
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/lab1/" title="환경 구성" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/lab1/">
+          <b>모듈 1. </b>환경 구성
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+          
+        
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/lab1/module1/" title="환경 구성" class="dd-item ">
+        <a href="/lab1/module1/">
+        <b>1.1 </b>환경 구성
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/lab2/" title="IoT Device 구성" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/lab2/">
+          <b>모듈 2. </b>IoT Device 구성
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+          
+        
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/lab2/module1/" title="IoT device 기본 구성 (콘솔)" class="dd-item ">
+        <a href="/lab2/module1/">
+        <b>2.1 </b>IoT device 기본 구성 (콘솔)
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/lab2/module2/" title="IoT device 기본 구성 (디바이스)" class="dd-item ">
+        <a href="/lab2/module2/">
+        <b>2.2 </b>IoT device 기본 구성 (디바이스)
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/lab3/" title="IoT 보안 터널링 구성" class="dd-item 
+        parent
+        
+        
+        ">
+      <a href="/lab3/">
+          <b>모듈 3. </b>IoT 보안 터널링 구성
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+          
+        
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/lab3/module1/" title="IoT 보안 터널링" class="dd-item ">
+        <a href="/lab3/module1/">
+        <b>3.1 </b>IoT 보안 터널링
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/lab3/module2/" title="IoT 보안 터널링 구성(수동)" class="dd-item ">
+        <a href="/lab3/module2/">
+        <b>3.2 </b>IoT 보안 터널링 구성(수동)
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/lab3/module3/" title="IoT 보안 터널링 구성(자동)" class="dd-item active">
+        <a href="/lab3/module3/">
+        <b>3.3 </b>IoT 보안 터널링 구성(자동)
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/lab3/module4/" title="내용 정리" class="dd-item ">
+        <a href="/lab3/module4/">
+        <b>3.4 </b>내용 정리
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/lab4/" title="자원 삭제" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/lab4/">
+          <b>모듈 4. </b>자원 삭제
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+          
+        
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/lab4/module1/" title="자원 삭제" class="dd-item ">
+        <a href="/lab4/module1/">
+        <b>4.1 </b>자원 삭제
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+          
+         
+    </ul>
+
+    
+    
+      <section id="shortcuts">
+        <h3></h3>
+        <ul>
+          
+              <li> 
+                  <a class="padding" href="/credits/"><i class='fas fa-fw fa-bullhorn'></i> 크레딧</a>
+              </li>
+          
+        </ul>
+      </section>
+    
+
+    
+    <section id="prefooter">
+      <hr/>
+      <ul>
+      
+      
+      
+        <li><a class="padding" href="#" data-clear-history-toggle=""><i class="fas fa-history fa-fw"></i> </a></li>
+      
+      </ul>
+    </section>
+    
+    <section id="footer">
+      © 2020 Amazon Web Services, Inc. or its Affiliates. All rights reserved.
+
+    </section>
+  </div>
+</nav>
+
+
+
+
+
+        <section id="body">
+        <div id="overlay"></div>
+        <div class="padding highlightable">
+              
+              <div>
+                <div id="top-bar">
+                
+                
+                <div id="breadcrumbs" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+                    <span id="sidebar-toggle-span">
+                        <a href="#" id="sidebar-toggle" data-sidebar-toggle="">
+                          <i class="fas fa-bars"></i>
+                        </a>
+                    </span>
+                  
+                  <span id="toc-menu"><i class="fas fa-list-alt"></i></span>
+                  
+                  <span class="links">
+                 
+                 
+                    
+          
+          
+            
+            
+          
+          
+            
+            
+          
+          
+            <a href='/'>홈</a> > <a href='/lab3/'>IoT 보안 터널링 구성</a> > IoT 보안 터널링 구성(자동)
+          
+         
+          
+         
+          
+        
+                 
+                  </span>
+                </div>
+                
+                    <div class="progress">
+    <div class="wrapper">
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#aws-iot-보안-터널링---자동-구성">AWS IoT 보안 터널링 - 자동 구성</a>
+      <ul>
+        <li><a href="#소스와-대상-디바이스에서-로컬-프록시-설치하기">소스와 대상 디바이스에서 로컬 프록시 설치하기</a></li>
+      </ul>
+    </li>
+    <li><a href="#aws-iot-보안-터널링-테스트">AWS IoT 보안 터널링 테스트</a></li>
+  </ul>
+</nav>
+    </div>
+</div>
+
+                
+              </div>
+            </div>
+            
+        <div id="head-tags">
+        
+        </div>
+        
+        <div id="body-inner">
+          
+            <h1>
+              
+              IoT 보안 터널링 구성(자동)
+            </h1>
+          
+
+        
+
+
+
+<h2 id="aws-iot-보안-터널링---자동-구성">AWS IoT 보안 터널링 - 자동 구성</h2>
+<p>모듈 3에서 진행했던 보안 터널 구성은 직관적이기는 하지만 매번 토큰을 각각의 디바이스에 업로드 해주어야한다는 불편함이 있습니다. 이번 모듈 4에서는 AWS CLI <em>open-tunnel</em> 명령어를 이용하면 remote device에 token을 미리 복사해 주지 않아도 되고, Remote device에 미리 local proxy를 설치만 미리 해놓고 ‘실행해 놓지 않아도’ 되는 자동 구성 방법에 대해서 알아봅니다.</p>
+<h3 id="소스와-대상-디바이스에서-로컬-프록시-설치하기">소스와 대상 디바이스에서 로컬 프록시 설치하기</h3>
+<ol>
+<li>
+<p>소스 디바이스 (admin 인스턴스)와 대상 디바이스 (GGAD 인스턴스)에 로컬 프록시를 설치하기 위해서는 다양한 dependency 소프트웨어를 설치해야하고, 그에 따른 시간이 오래 걸립니다. 따라서 워크샵 펀의상 이 부분은 이미 구성이 되어있는 AMI로 대체되었습니다.</p>
+<ul>
+<li>세부적인 과정이 궁금한 사용자들을 위해 AMI를 구성했던 부트스트랩 스크립트를 <strong>참고</strong>해주시기 바랍니다. 
+
+<div class="expand">
+    <div class="expand-label" style="cursor: pointer;" onclick="$h = $(this);$h.next('div').slideToggle(100,function () {$h.children('i').attr('class',function () {return $h.next('div').is(':visible') ? 'fas fa-chevron-down' : 'fas fa-chevron-right';});});">
+        <i style="font-size:x-small;" class="fas fa-chevron-right"></i>
+        <span>
+        
+    	
+    	 부트스트랩 스크립트보기
+    	
+    	</span>
+    </div>
+    <div class="expand-content" style="display: none;">
+        <pre><code>#!/bin/bash
+
+sudo apt-get update
+
+# 파이썬 설치 
+sudo apt-get -y install python3-pip
+sudo python3 -m pip install AWSIoTPythonSDK
+sudo update-alternatives --install /usr/bin/python python /usr/bin/python3 3
+sudo update-alternatives --config python
+
+# 폴더 생성
+mkdir ~/dependencies
+cd ~/dependencies
+
+# local proxy 설치를 위한 dependency 설치 
+sudo apt-get -y install build-essential
+sudo apt-get -y install cmake
+sudo apt-get -y install zlibc
+sudo apt-get -y install libssl-dev
+sudo apt-get -y install unzip
+
+## Boost dependency 파일 설치 
+wget https://dl.bintray.com/boostorg/release/1.69.0/source/boost_1_69_0.tar.gz -O /tmp/boost.tar.gz
+sudo tar xzvf /tmp/boost.tar.gz
+cd boost_1_69_0
+./bootstrap.sh
+sudo ./b2 install
+
+## Protobuf dependency 파일 설치 
+cd ~/dependencies
+wget https://github.com/protocolbuffers/protobuf/releases/download/v3.6.1/protobuf-all-3.6.1.tar.gz -O /tmp/protobuf-all-3.6.1.tar.gz
+sudo tar xzvf /tmp/protobuf-all-3.6.1.tar.gz
+cd protobuf-3.6.1
+sudo mkdir build
+cd build
+sudo cmake ../cmake
+sudo make
+sudo make install
+
+
+## Catch2 test framework 설치 
+cd ~/dependencies
+sudo git clone https://github.com/catchorg/Catch2.git
+cd Catch2
+sudo mkdir build
+cd build
+sudo cmake ../
+sudo make
+sudo make install
+
+# local proxy 설치
+cd ~/dependencies
+git clone https://github.com/aws-samples/aws-iot-securetunneling-localproxy
+cd aws-iot-securetunneling-localproxy
+mkdir build
+cd build
+cmake ../
+make
+</code></pre>
+    </div>
+</div></li>
+</ul>
+</li>
+</ol>
+<h2 id="aws-iot-보안-터널링-테스트">AWS IoT 보안 터널링 테스트</h2>
+<ol start="2">
+<li>대상 디바이스 (GGAD 인스턴스) 에서 로컬 프록시 설정을 확인하겠습니다. Cloud9의 GGAD 터미널로 이동합니다.</li>
+</ol>
+
+<div class="notices warning" ><p>GGAD 인스턴스의 터미널이 맞는지 다시한번 확인합니다.</p>
+</div>
+
+<ol start="3">
+<li>명령어를 실행했을 때 다음과 같이 나타나면 정상입니다.</li>
+</ol>
+<pre><code>cd ~/dependencies
+ls
+</code></pre><p><img src="/lab2/image/securetunnel_12.png" alt="securetunnel"></p>
+<ol start="4">
+<li>다음 명령어를 실행하여 local 프록시의 자동 실행을 위한 스크립트를 다운로드하고, proxy-demo.py 파일을 홈 디렉터리로 복사해옵니다.</li>
+</ol>
+<pre><code>cd ~
+git clone https://github.com/yijeong/smartfactoryiot.git
+cp ~/smartfactoryiot/device/proxy-demo.py ~    
+</code></pre><ol start="5">
+<li>파일 편집을 위해 편집기를 실행합니다.</li>
+</ol>
+<pre><code>vi ~/proxy-demo.py
+</code></pre><ol start="6">
+<li>
+<p>수정해야 할 곳은 # <strong>Parameter</strong> 의 <strong>iot_endpoint</strong> 부분으로, 다음과 같이 값을 수정합니다.</p>
+<ol>
+<li>
+<p>AWS IoT 콘솔의 사물 메뉴로 <a href="https://console.aws.amazon.com/iot/home?region=us-east-1#/thinghub">이동</a>하여 **SFworkshop_thing&quot;을 선택합니다. 
+<img src="/lab2/image/securetunnel_13.png" alt="securetunnel"></p>
+</li>
+<li>
+<p>사물의 메뉴 중 상호 작용을 클릭하면 다음과 같이 REST API 엔드포인트가 기술되어있습니다. 이 값을 <strong>iot_endpoint</strong>에 넣어줍니다. 
+<img src="/lab2/image/securetunnel_14.png" alt="securetunnel"></p>
+</li>
+<li>
+<p><em>proxy-demo.py</em>는 대략 다음과 같은 모습이 됩니다. 
+<img src="/lab2/image/securetunnel_15.png" alt="securetunnel"></p>
+</li>
+</ol>
+</li>
+<li>
+<p>이제 스크립트를 실행합니다. 그림과 같이 에러가 나지 않고 대기 상태에 들어가면 정상입니다. 이 스크립트는 예약된 topic($aws/things/<!-- raw HTML omitted -->/tunnels/notify)의 메시지를 수신하면 destination용 token을 수신하고 local proxy를 실행하는 역할을 합니다.</p>
+</li>
+</ol>
+<pre><code>python ~/proxy-demo.py
+</code></pre><p><img src="/lab2/image/securetunnel_16.png" alt="securetunnel"></p>
+<ol start="8">
+<li>
+<p>AWS CLI open-tunnel 명령을 실행하기 위해, 하나의 터미널을 더 열어줍니다. 
+<img src="/lab2/image/securetunnel_17.png" alt="securetunnel">
+<img src="/lab2/image/securetunnel_18.png" alt="securetunnel"></p>
+</li>
+<li>
+<p>cloud9 인스턴스는 이미 aws cli 및 관련 권한을 갖추고 있습니다. open-tunnel 명령어를 통해 새로운 터널을 열겠습니다. 이 명령어를 통해 신규 ssh tunnel이 생성되고 token도 target device에 배포가 됩니다. ($aws/things/<!-- raw HTML omitted -->/tunnels/notify 토픽으로 메시지가 전송)</p>
+</li>
+</ol>
+<pre><code>aws iotsecuretunneling open-tunnel --destination-config --region us-east-1 thingName=SFworkshop_thing,services=ssh
+</code></pre><p><img src="/lab2/image/securetunnel_20.png" alt="securetunnel"></p>
+
+<div class="notices info" ><p>추후 사용하기 위해 결과값 중 sourceAccessToken의 값을 복사해둡니다.</p>
+</div>
+
+<ol start="10">
+<li>
+<p>다시 GGAD 인스턴스 터미널로 돌아가보면 다음과 같이 새로운 tunnel에 대한 공지를 받고 연결을 수립하는 것을 볼 수 있습니다. 
+<img src="/lab2/image/securetunnel_19.png" alt="securetunnel"></p>
+</li>
+<li>
+<p>이제 소스 디바이스 (admin 인스턴스) 에서 로컬 프록시를 실행해보겠습니다. 사용하시는 편한 터미널 도구를 이용해서 (예: putty) admin 인스턴스에 접속합니다.</p>
+<ul>
+<li>
+<p>admin 인스턴스의 IP는 Cloudformation 의 출력탭에서 확인할 수 있습니다. 
+<img src="/lab2/image/securetunnel_10.png" alt="securetunnel"></p>
+</li>
+<li>
+<p>사진의 예는 MAC OS 의 기본 터미널입니다.</p>
+</li>
+</ul>
+<pre><code>chmod 400 ~/Downloads/SFworkshop-keypair.pem 
+ssh -i ~/Downloads/SFworkshop-keypair.pem ubuntu@&lt;admin인스턴스의 퍼블릭IP&gt;
+</code></pre><p><img src="/lab2/image/securetunnel_11.png" alt="securetunnel"></p>
+</li>
+<li>
+<p>admin 인스턴스 내에서 다음과 같이 명령어를 실행해 로컬 프록시를 시작합니다. sourceAccessToken값은 앞서 16번에서 복사해둔 값을 사용합니다. 정상적으로 실행이 되면 그림과 같이 연결 대기 상태가 됩니다.</p>
+</li>
+</ol>
+<pre><code># 로컬 프록시 경로로 이동 
+cd ~/dependencies/aws-iot-securetunneling-localproxy/build/bin/
+
+# 로컬 프록시 시작
+./localproxy -r us-east-1 -s 5000 -t &lt;sourceAccessToken값&gt;
+</code></pre><p><img src="/lab2/image/securetunnel_21.png" alt="securetunnel"></p>
+<ol start="13">
+<li>이제 하나의 터미널창을 더 띄우고, 로컬 PC에 저장되어있는 keypair파일 (<em>SFworkshop-keypair.pem</em>)을 admin 인스턴스의 홈디렉터리에 복사해옵니다. 명령어의 예시는 MAC OS 기반입니다.</li>
+</ol>
+<pre><code># 로컬 PC에서 실행
+scp -i ~/Downloads/SFworkshop-keypair.pem ~/Downloads/SFworkshop-keypair.pem ubuntu@3.95.133.202:~
+</code></pre><ol start="14">
+<li>admin 인스턴스에 접속하여 키파일이 잘 복사되었는지 확인합니다.</li>
+</ol>
+<pre><code># 로컬 PC에서 실행
+ssh -i ~/Downloads/SFworkshop-keypair.pem ubuntu@3.95.133.202 
+
+# admin 인스턴스에서 확인 
+ls
+</code></pre><ol start="15">
+<li>복사해온 키와 로컬 프록시를 이용해서 GGAD 용 인스턴스에 접속해봅니다.</li>
+</ol>
+<pre><code>ssh -i ~/SFworkshop-keypair.pem ubuntu@localhost -p 5000
+</code></pre><p><img src="/lab2/image/securetunnel_22.png" alt="securetunnel"></p>
+<p>수고하셨습니다. 보안 터널링 구성을 모두 완료하였습니다.</p>
+<hr>
+<p>© 2020 Amazon Web Services, Inc. 또는 자회사, All rights reserved.</p>
+
+
+<footer class=" footline" >
+	
+</footer>
+
+
+        
+        </div> 
+        
+
+      </div>
+
+    <div id="navigation">
+        
+        
+        
+        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+            
+        
+        
+        
+
+
+	 
+	 
+		
+			<a class="nav nav-prev" href="/lab3/module2/" title="IoT 보안 터널링 구성(수동)"> <i class="fa fa-chevron-left"></i></a>
+		
+		
+			<a class="nav nav-next" href="/lab3/module4/" title="내용 정리" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+		
+	
+    </div>
+
+    </section>
+    
+    <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
+      <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
+    </div>
+    <script src="/js/clipboard.min.js?1587436142"></script>
+    <script src="/js/perfect-scrollbar.min.js?1587436142"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1587436142"></script>
+    <script src="/js/jquery.sticky.js?1587436142"></script>
+    <script src="/js/featherlight.min.js?1587436142"></script>
+    <script src="/js/highlight.pack.js?1587436142"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="/js/modernizr.custom-3.6.0.js?1587436142"></script>
+    <script src="/js/learn.js?1587436142"></script>
+    <script src="/js/hugo-learn.js?1587436142"></script>
+
+    <link href="/mermaid/mermaid.css?1587436142" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1587436142"></script>
+    <script>
+        mermaid.initialize({ startOnLoad: true });
+    </script>
+    
+  </body>
+</html>
+

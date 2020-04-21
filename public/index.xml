@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>홈 on AWS IoT Secure Tunnel 구성</title>
+    <link>/</link>
+    <description>Recent content in 홈 on AWS IoT Secure Tunnel 구성</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ko-KR</language>
+    <lastBuildDate>Thu, 05 Mar 2020 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>IoT device 기본 구성 (콘솔)</title>
+      <link>/lab2/module1/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/lab2/module1/</guid>
+      <description>AWS IoT에 연결된 디바이스는 AWS IoT 레지스트리 내에 사물(thing)로 표현됩니다. 사물은 특정 디바이스 또는 논리적 엔터티를 나타냅니다. 사물은 물리적 디바이스 또는 센서일 수 있습니다(예: 전구 또는 벽면 스위치). 또한 사물은 애플리케이션의 인스턴스와 같은 논리적 엔터티(워크샵에서는 GGAD 인스턴스) 또는 직접 AWS IoT에 연결하지는 않지만 여기에 연결하는 다른 디바이스와 관련이 있는 물리적 엔터티(예: 엔진 센서 또는 제어 패널이 장착된 차량)일 수도 있습니다.    우선 AWS IoT 콘솔로 이동합니다.
+  AWS IoT 콘솔의 온보딩 메뉴로 이동합니다.</description>
+    </item>
+    
+    <item>
+      <title>IoT 보안 터널링</title>
+      <link>/lab3/module1/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/lab3/module1/</guid>
+      <description>AWS IoT 보안 터널링 원격 사이트의 제한된 방화벽 뒤에 디바이스를 배포하는 경우 문제에 대한 트러블슈팅, 구성 업데이트 및 기타 운영 작업을 위해 해당 디바이스에 액세스할 수 있는 방법으로, AWS IoT에서 관리하는 보안 연결을 통해 원격 디바이스에 양방향 통신을 설정할 수 있습니다. 기존 인바운드 방화벽 규칙을 업데이트할 필요가 없으므로 원격 사이트의 방화벽 규칙에서 제공하는 보안 수준을 동일하게 유지할 수 있습니다.
+워크샵에서는 소스 및 대상지가 모두 VPC (SFworkshop VPC, default VPC)로 시뮬레이션 되었다는 것을 기억하십시오.</description>
+    </item>
+    
+    <item>
+      <title>자원 삭제</title>
+      <link>/lab4/module1/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/lab4/module1/</guid>
+      <description>CloudFormation 스택 삭제   CloudFormation 콘솔로 이동합니다.
+  다음 스택을 삭제합니다.
+ SmartFactoryworkshop aws-cloud9-SFworkshop-GGC-xxxxx    약 5분 뒤 정상적으로 삭제가 완료되었는지 확인합니다.
+  IoT 자원 삭제  AWS IoT 콘솔로 이동 합니다.
+  다음 자원들을 삭제합니다.
+ 사물 : SFworkshop_thing 터널 : 워크샵에서 사용했던 터널들 보안 : 인증서 / 정책    key pair 삭제  EC2 키페어 콘솔로 이동 합니다.
+  다음 자원을 삭제합니다.</description>
+    </item>
+    
+    <item>
+      <title>IoT device 기본 구성 (디바이스)</title>
+      <link>/lab2/module2/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/lab2/module2/</guid>
+      <description>해당 모듈에서는 앞서 AWS IoT에 등록했던 사물 디바이스에 대한 인스턴스 구성을 합니다. 관련 SDK를 설치하고 sample 스크립트를 이용해서 정상적으로 데이터가 구독되는지까지 확인합니다.    Cloud9 콘솔의 SFworkshop-GGC 환경으로 이동합니다.
+  프롬프트를 통해 해당 터미널이 GGC(cloud9, IAM User가 나타남) 인스턴스인지 GGAD(EC2 instance, ubuntu가 나타남)인스턴스인지 확인하고, 필요시 GGC 인스턴스로 이동합니다.
+  상단의 File &amp;gt; Upload Local Files… 메뉴를 이용하여, 다운로드 받은 connect_device_package.zip 파일을 Cloud9 IDE에 업로드합니다.   프롬프트를 통해 해당 터미널이 GGC(cloud9, IAM User가 나타남) 인스턴스인지 GGAD(EC2 instance, ubuntu가 나타남)인스턴스인지 확인하고, 필요시 GGC 인스턴스로 이동합니다.</description>
+    </item>
+    
+    <item>
+      <title>IoT 보안 터널링 구성(수동)</title>
+      <link>/lab3/module2/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/lab3/module2/</guid>
+      <description>소스와 대상 디바이스에서 로컬 프록시 설치하기   소스 디바이스 (admin 인스턴스)와 대상 디바이스 (GGAD 인스턴스)에 로컬 프록시를 설치하기 위해서는 다양한 dependency 소프트웨어를 설치해야하고, 그에 따른 시간이 오래 걸립니다. 따라서 워크샵 펀의상 이 부분은 이미 구성이 되어있는 AMI로 대체되었습니다.
+ 세부적인 과정이 궁금한 사용자들을 위해 AMI를 구성했던 부트스트랩 스크립트를 참고해주시기 바랍니다. 부트스트랩 스크립트보기#!/bin/bashsudo apt-get update# 파이썬 설치 sudo apt-get -y install python3-pipsudo python3 -m pip install AWSIoTPythonSDKsudo update-alternatives --install /usr/bin/python python /usr/bin/python3 3sudo update-alternatives --config python# 폴더 생성mkdir ~/dependenciescd ~/dependencies# local proxy 설치를 위한 dependency 설치 sudo apt-get -y install build-essentialsudo apt-get -y install cmakesudo apt-get -y install zlibcsudo apt-get -y install libssl-devsudo apt-get -y install unzip## Boost dependency 파일 설치 wget https://dl.</description>
+    </item>
+    
+    <item>
+      <title>IoT 보안 터널링 구성(자동)</title>
+      <link>/lab3/module3/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/lab3/module3/</guid>
+      <description>AWS IoT 보안 터널링 - 자동 구성 모듈 3에서 진행했던 보안 터널 구성은 직관적이기는 하지만 매번 토큰을 각각의 디바이스에 업로드 해주어야한다는 불편함이 있습니다. 이번 모듈 4에서는 AWS CLI open-tunnel 명령어를 이용하면 remote device에 token을 미리 복사해 주지 않아도 되고, Remote device에 미리 local proxy를 설치만 미리 해놓고 ‘실행해 놓지 않아도’ 되는 자동 구성 방법에 대해서 알아봅니다.
+소스와 대상 디바이스에서 로컬 프록시 설치하기   소스 디바이스 (admin 인스턴스)와 대상 디바이스 (GGAD 인스턴스)에 로컬 프록시를 설치하기 위해서는 다양한 dependency 소프트웨어를 설치해야하고, 그에 따른 시간이 오래 걸립니다.</description>
+    </item>
+    
+    <item>
+      <title>내용 정리</title>
+      <link>/lab3/module4/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/lab3/module4/</guid>
+      <description>정리해보겠습니다  소스와 대상 디바이스에 로컬 프록시를 설치가 되어있습니다. 대상 디바이스 (GGAD인스턴스)에서는 AWS에서 예약된 topic($aws/things/[사물이름]/tunnels/notify)의 메시지를 구독(subscribe)하는 스크립트가 실행중입니다. (proxy-demo.py) 여기에 aws cli 권한이 있는 사용자가 open-tunnel 명령어(aws iotsecuretunneling open-tunnel --destination-config --region us-east-1 thingName=SFworkshop_thing,services=ssh)로 새로운 보안 터널과 두개의 토큰을 생성합니다. proxy-demo.py는 메시지가 수신되면 destination 용 토큰을 받아 로컬 프록시를 실행합니다. 로컬 프록시를 실행하는 명령어는 다음과 같습니다. ./localproxy -r us-east-1 -d localhost:22 -t &amp;lt;destination_client_access_token&amp;gt; 소스 디바이스 (admin 인스턴스)에서도 ./localproxy -r us-east-1 -s 5000 -t &amp;lt;source_client_access_token&amp;gt; 와 같이 로컬 프록시를 가동합니다.</description>
+    </item>
+    
+    <item>
+      <title>환경 구성</title>
+      <link>/lab1/module1/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/lab1/module1/</guid>
+      <description>사전 준비 사항  AWS 계정 및 IAM User : IAM, AWS IoT, Amazon EC2 에 대한 권한이 있는 IAM User를 사용해야 합니다. 브라우저: 최신 버전의 크롬, 파이어폭스  리전 선택  AWS 리전: 이번 실습은 버지니아 북부 (us-east-1) 리전에서 실행합니다.  리소스 생성 EC2 키페어 생성 (이미 생성된 경우 이 단계 생략 가능)   EC2 키페어는 EC2인스턴스 생성을 위해 필요한 항목이므로, CloudFormation 템플릿을 실행하기에 앞서 EC2 키페어를 생성합니다.</description>
+    </item>
+    
+    <item>
+      <title>크레딧</title>
+      <link>/credits/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/credits/</guid>
+      <description>Author Amazon Web Services Solutions Architect 조이정 yijeong@amazon.com
+참고 자료 Git Repository </description>
+    </item>
+    
+  </channel>
+</rss>

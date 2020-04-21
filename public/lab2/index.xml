@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>IoT Device 구성 on AWS IoT Secure Tunnel 구성</title>
+    <link>/lab2/</link>
+    <description>Recent content in IoT Device 구성 on AWS IoT Secure Tunnel 구성</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ko-KR</language>
+    
+	<atom:link href="/lab2/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>IoT device 기본 구성 (콘솔)</title>
+      <link>/lab2/module1/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/lab2/module1/</guid>
+      <description>AWS IoT에 연결된 디바이스는 AWS IoT 레지스트리 내에 사물(thing)로 표현됩니다. 사물은 특정 디바이스 또는 논리적 엔터티를 나타냅니다. 사물은 물리적 디바이스 또는 센서일 수 있습니다(예: 전구 또는 벽면 스위치). 또한 사물은 애플리케이션의 인스턴스와 같은 논리적 엔터티(워크샵에서는 GGAD 인스턴스) 또는 직접 AWS IoT에 연결하지는 않지만 여기에 연결하는 다른 디바이스와 관련이 있는 물리적 엔터티(예: 엔진 센서 또는 제어 패널이 장착된 차량)일 수도 있습니다.    우선 AWS IoT 콘솔로 이동합니다.
+  AWS IoT 콘솔의 온보딩 메뉴로 이동합니다.</description>
+    </item>
+    
+    <item>
+      <title>IoT device 기본 구성 (디바이스)</title>
+      <link>/lab2/module2/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/lab2/module2/</guid>
+      <description>해당 모듈에서는 앞서 AWS IoT에 등록했던 사물 디바이스에 대한 인스턴스 구성을 합니다. 관련 SDK를 설치하고 sample 스크립트를 이용해서 정상적으로 데이터가 구독되는지까지 확인합니다.    Cloud9 콘솔의 SFworkshop-GGC 환경으로 이동합니다.
+  프롬프트를 통해 해당 터미널이 GGC(cloud9, IAM User가 나타남) 인스턴스인지 GGAD(EC2 instance, ubuntu가 나타남)인스턴스인지 확인하고, 필요시 GGC 인스턴스로 이동합니다.
+  상단의 File &amp;gt; Upload Local Files… 메뉴를 이용하여, 다운로드 받은 connect_device_package.zip 파일을 Cloud9 IDE에 업로드합니다.   프롬프트를 통해 해당 터미널이 GGC(cloud9, IAM User가 나타남) 인스턴스인지 GGAD(EC2 instance, ubuntu가 나타남)인스턴스인지 확인하고, 필요시 GGC 인스턴스로 이동합니다.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,823 @@
+<!DOCTYPE html>
+<html lang="ko" class="js csstransforms3d">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="Hugo 0.64.1" />
+    <meta name="description" content="AWS IoT Secure Tunnel 구성">
+<meta name="author" content="Yijeong Cho">
+
+    <link rel="icon" href="/images/favicon.png" type="image/png">
+
+    <title>IoT device 기본 구성 (디바이스) :: AWS IoT Secure Tunnel 구성</title>
+
+    
+    <link href="/css/nucleus.css?1587436142" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1587436142" rel="stylesheet">
+    <link href="/css/hybrid.css?1587436142" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1587436142" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1587436142" rel="stylesheet">
+    <link href="/css/auto-complete.css?1587436142" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1587436142" rel="stylesheet">
+    <link href="/css/theme.css?1587436142" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1587436142" rel="stylesheet">
+    
+      <link href="/css/theme-aws.css?1587436142" rel="stylesheet">
+    
+
+    <script src="/js/jquery-3.3.1.min.js?1587436142"></script>
+
+    <style>
+      :root #header + #content > #left > #rlblock_left{
+          display:none !important;
+      }
+      
+    </style>
+    
+  </head>
+  <body class="" data-url="/lab2/module2/">
+    <nav id="sidebar" class="showVisitedLinks">
+
+
+
+  <div id="header-wrapper">
+    <div id="header">
+      <a id="logo" href="/">
+	<img src="/webbasedworkshop/images/logo.png" height="70px"/>
+</a>
+
+    </div>
+    
+        <div class="searchbox">
+    <label for="search-by"><i class="fas fa-search"></i></label>
+    <input data-search-input id="search-by" type="search" placeholder="">
+    <span data-search-clear=""><i class="fas fa-times"></i></span>
+</div>
+
+<script type="text/javascript" src="/js/lunr.min.js?1587436142"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1587436142"></script>
+<script type="text/javascript">
+    
+        var baseurl = "";
+    
+</script>
+<script type="text/javascript" src="/js/search.js?1587436142"></script>
+
+    
+  </div>
+
+    <div class="highlightable">
+    <ul class="topics">
+
+        
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/lab1/" title="환경 구성" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/lab1/">
+          <b>모듈 1. </b>환경 구성
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+          
+        
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/lab1/module1/" title="환경 구성" class="dd-item ">
+        <a href="/lab1/module1/">
+        <b>1.1 </b>환경 구성
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/lab2/" title="IoT Device 구성" class="dd-item 
+        parent
+        
+        
+        ">
+      <a href="/lab2/">
+          <b>모듈 2. </b>IoT Device 구성
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+          
+        
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/lab2/module1/" title="IoT device 기본 구성 (콘솔)" class="dd-item ">
+        <a href="/lab2/module1/">
+        <b>2.1 </b>IoT device 기본 구성 (콘솔)
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/lab2/module2/" title="IoT device 기본 구성 (디바이스)" class="dd-item active">
+        <a href="/lab2/module2/">
+        <b>2.2 </b>IoT device 기본 구성 (디바이스)
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/lab3/" title="IoT 보안 터널링 구성" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/lab3/">
+          <b>모듈 3. </b>IoT 보안 터널링 구성
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+          
+        
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/lab3/module1/" title="IoT 보안 터널링" class="dd-item ">
+        <a href="/lab3/module1/">
+        <b>3.1 </b>IoT 보안 터널링
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/lab3/module2/" title="IoT 보안 터널링 구성(수동)" class="dd-item ">
+        <a href="/lab3/module2/">
+        <b>3.2 </b>IoT 보안 터널링 구성(수동)
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/lab3/module3/" title="IoT 보안 터널링 구성(자동)" class="dd-item ">
+        <a href="/lab3/module3/">
+        <b>3.3 </b>IoT 보안 터널링 구성(자동)
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/lab3/module4/" title="내용 정리" class="dd-item ">
+        <a href="/lab3/module4/">
+        <b>3.4 </b>내용 정리
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/lab4/" title="자원 삭제" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/lab4/">
+          <b>모듈 4. </b>자원 삭제
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+          
+        
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/lab4/module1/" title="자원 삭제" class="dd-item ">
+        <a href="/lab4/module1/">
+        <b>4.1 </b>자원 삭제
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+          
+         
+    </ul>
+
+    
+    
+      <section id="shortcuts">
+        <h3></h3>
+        <ul>
+          
+              <li> 
+                  <a class="padding" href="/credits/"><i class='fas fa-fw fa-bullhorn'></i> 크레딧</a>
+              </li>
+          
+        </ul>
+      </section>
+    
+
+    
+    <section id="prefooter">
+      <hr/>
+      <ul>
+      
+      
+      
+        <li><a class="padding" href="#" data-clear-history-toggle=""><i class="fas fa-history fa-fw"></i> </a></li>
+      
+      </ul>
+    </section>
+    
+    <section id="footer">
+      © 2020 Amazon Web Services, Inc. or its Affiliates. All rights reserved.
+
+    </section>
+  </div>
+</nav>
+
+
+
+
+
+        <section id="body">
+        <div id="overlay"></div>
+        <div class="padding highlightable">
+              
+              <div>
+                <div id="top-bar">
+                
+                
+                <div id="breadcrumbs" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+                    <span id="sidebar-toggle-span">
+                        <a href="#" id="sidebar-toggle" data-sidebar-toggle="">
+                          <i class="fas fa-bars"></i>
+                        </a>
+                    </span>
+                  
+                  <span id="toc-menu"><i class="fas fa-list-alt"></i></span>
+                  
+                  <span class="links">
+                 
+                 
+                    
+          
+          
+            
+            
+          
+          
+            
+            
+          
+          
+            <a href='/'>홈</a> > <a href='/lab2/'>IoT Device 구성</a> > IoT device 기본 구성 (디바이스)
+          
+         
+          
+         
+          
+        
+                 
+                  </span>
+                </div>
+                
+                    <div class="progress">
+    <div class="wrapper">
+<nav id="TableOfContents"></nav>
+    </div>
+</div>
+
+                
+              </div>
+            </div>
+            
+        <div id="head-tags">
+        
+        </div>
+        
+        <div id="body-inner">
+          
+            <h1>
+              
+              IoT device 기본 구성 (디바이스)
+            </h1>
+          
+
+        
+
+
+
+<ul>
+<li>해당 모듈에서는 앞서 AWS IoT에 등록했던 사물 디바이스에 대한 인스턴스 구성을 합니다. 관련 SDK를 설치하고 sample 스크립트를 이용해서 정상적으로 데이터가 구독되는지까지 확인합니다.</li>
+</ul>
+<ol>
+<li>
+<p>Cloud9 <a href="https://console.aws.amazon.com/cloud9/home?region=us-east-1">콘솔</a>의 SFworkshop-GGC 환경으로 이동합니다.</p>
+</li>
+<li>
+<p>프롬프트를 통해 해당 터미널이 GGC(cloud9, <em>IAM User</em>가 나타남) 인스턴스인지 GGAD(EC2 instance, <em>ubuntu</em>가 나타남)인스턴스인지 확인하고, 필요시 GGC 인스턴스로 이동합니다.</p>
+</li>
+<li>
+<p>상단의 File &gt; Upload Local Files… 메뉴를 이용하여, 다운로드 받은 <em><strong>connect_device_package.zip</strong></em> 파일을 Cloud9 IDE에 업로드합니다.
+<img src="/lab2/image/ggad_setting_1.png" alt="ggadsetting">
+<img src="/lab2/image/ggad_setting_2.png" alt="ggadsetting"></p>
+</li>
+<li>
+<p>프롬프트를 통해 해당 터미널이 GGC(cloud9, <em>IAM User</em>가 나타남) 인스턴스인지 GGAD(EC2 instance, <em>ubuntu</em>가 나타남)인스턴스인지 확인하고, 필요시 GGC 인스턴스로 이동합니다.</p>
+</li>
+<li>
+<p>다음 명령어를 통해 다운받은 연결 키트를 GGAD 인스턴스로 복사합니다.</p>
+</li>
+</ol>
+<pre><code>scp -i ~/environment/SFworkshop-keypair.pem ~/environment/connect_device_package.zip ubuntu@$GGAD_IP:~/
+</code></pre><ol start="5">
+<li>복사가 완료되면 GGAD인스턴스로 접속하고, 다운 받은 파일의 압축을 해제합니다.</li>
+</ol>
+<pre><code># GGAD로 로그인
+ssh -i ~/environment/SFworkshop-keypair.pem ubuntu@$GGAD_IP
+
+# 다운받은 파일 확인
+ls
+
+# 파일 압축 해제 
+unzip connect_device_package.zip 
+</code></pre>
+<div class="notices info" ><p>연결키트에는 해당 사물 디바이스에 대한 인증서와 퍼블릭키,프라이빗 키 그리고 Python을 위한 AWS Device SDK를 다운로드 및 설치하고 간단한 구독 테스트를 하기 위한 시작 스크립트(<strong>start.sh</strong>)가 포함되어있습니다.</p>
+</div>
+
+<ol start="6">
+<li>압축이 해제된 파일들 중 start.sh 에 실행권한을 추가하고, 시작 스크립트를 실행합니다.</li>
+</ol>
+<pre><code># 실행 권한 추가
+chmod +x start.sh
+
+# 스크립트 실행 
+./start.sh
+</code></pre><ol start="7">
+<li>
+<p>다음과 같은 화면이 나오면서 메시지가 publish 되면 정상입니다. 
+<img src="/lab2/image/ggad_setting_4.png" alt="ggadsetting"></p>
+</li>
+<li>
+<p>publish된 메시지가 정상적으로 구독이 되는지 확인하기 위해 IoT 콘솔의 테스트 메뉴로 <a href="https://console.aws.amazon.com/iot/home?region=us-east-1#/test">이동</a>합니다.</p>
+</li>
+<li>
+<p>구독 주제로 start.sh에 미리 설정되어있던 <em><strong>sdk/test/Python</strong></em> 을 입력한 뒤 주제 구독을 클릭합니다. 
+<img src="/lab2/image/ggad_setting_6.png" alt="ggadsetting"></p>
+</li>
+<li>
+<p>다음과 같이 테스트 메시지가 구독되고 있다면 정상입니다. 
+<img src="/lab2/image/ggad_setting_7.png" alt="ggadsetting"></p>
+</li>
+</ol>
+
+<div class="notices info" ><p>GGAD 인스턴스에서 스크립트의 실행을 멈추셨다면 더이상 구독 메시지가 보이지 않습니다. 메시지가 보이지 않는다면 스크립트가 실행되고 있는지 확인해주시기 바랍니다.</p>
+</div>
+
+<ol start="9">
+<li>다시 cloud9 의 GGAD 터미널로 돌아와 <em>ls</em> 명령어를 실행하면 <strong>aws-iot-device-sdk-python</strong>과 <strong>root-CA.crt</strong> 파일이 생성된 것을 확인할 수 있습니다. 해당 파일들은 <strong>start.sh</strong> 파일의 실행결과로 생성이 되었습니다. 
+<img src="/lab2/image/ggad_setting_5.png" alt="ggadsetting"></li>
+</ol>
+<ul>
+<li>이제 디바이스의 기본 구성이 완료 되었습니다.</li>
+</ul>
+<hr>
+<p>© 2020 Amazon Web Services, Inc. 또는 자회사, All rights reserved.</p>
+
+
+<footer class=" footline" >
+	
+</footer>
+
+
+        
+        </div> 
+        
+
+      </div>
+
+    <div id="navigation">
+        
+        
+        
+        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+            
+        
+        
+        
+
+
+	 
+	 
+		
+			<a class="nav nav-prev" href="/lab2/module1/" title="IoT device 기본 구성 (콘솔)"> <i class="fa fa-chevron-left"></i></a>
+		
+		
+			<a class="nav nav-next" href="/lab3/" title="IoT 보안 터널링 구성" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+		
+	
+    </div>
+
+    </section>
+    
+    <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
+      <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
+    </div>
+    <script src="/js/clipboard.min.js?1587436142"></script>
+    <script src="/js/perfect-scrollbar.min.js?1587436142"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1587436142"></script>
+    <script src="/js/jquery.sticky.js?1587436142"></script>
+    <script src="/js/featherlight.min.js?1587436142"></script>
+    <script src="/js/highlight.pack.js?1587436142"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="/js/modernizr.custom-3.6.0.js?1587436142"></script>
+    <script src="/js/learn.js?1587436142"></script>
+    <script src="/js/hugo-learn.js?1587436142"></script>
+
+    <link href="/mermaid/mermaid.css?1587436142" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1587436142"></script>
+    <script>
+        mermaid.initialize({ startOnLoad: true });
+    </script>
+    
+  </body>
+</html>
+
