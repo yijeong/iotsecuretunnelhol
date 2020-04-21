@@ -1,20 +1,16 @@
-# baseURL 변경
-baseURL = ""
+baseURL = "https://master.d2r6v7ins5jzsk.amplifyapp.com/"
 languageCode = "ko-KR"
 defaultContentLanguage = "ko"
 
-# title 변경
-title = "AWS IoT Secure Tunnel 구성"
+title = "AWS IoT 서비스 워크샵"
 theme = "hugo-theme-learn"
 themesdir = "."
 metaDataFormat = "yaml"
 defaultContentLanguageInSubdir= true
-#ignoreFiles = [ "\\.*lab3\\.*" ]
 
-# description, author 변경
 [params]
-  description = "AWS IoT Secure Tunnel 구성"
-  author = "Yijeong Cho"
+  description = "AWS IoT Services Workshop"
+  author = "Yijeong Cho, Albert Lee"
   showVisitedLinks = true
   disableBreadcrumb = false
   disableNextPrev = false
@@ -24,7 +20,7 @@ defaultContentLanguageInSubdir= true
 home = [ "HTML", "RSS", "JSON"]
 
 [Languages.ko]
-title = "AWS IoT Secure Tunnel 구성"
+title = "AWS IoT 서비스 워크샵"
 weight = 1
 languageName = "한국어"
 
