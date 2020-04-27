@@ -10,7 +10,7 @@ defaultContentLanguageInSubdir= true
 
 [params]
   description = "AWS IoT Services Workshop"
-  author = "Yijeong Cho, Albert Lee"
+  author = "Yijeong Cho"
   showVisitedLinks = true
   disableBreadcrumb = false
   disableNextPrev = false

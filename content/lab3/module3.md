@@ -169,13 +169,13 @@ cd ~/dependencies/aws-iot-securetunneling-localproxy/build/bin/
 13. 이제 하나의 터미널창을 더 띄우고, 로컬 PC에 저장되어있는 keypair파일 (*SFworkshop-keypair.pem*)을 admin 인스턴스의 홈디렉터리에 복사해옵니다. 명령어의 예시는 MAC OS 기반입니다. 
 ```
 # 로컬 PC에서 실행
-scp -i ~/Downloads/SFworkshop-keypair.pem ~/Downloads/SFworkshop-keypair.pem ubuntu@3.95.133.202:~
+scp -i ~/Downloads/SFworkshop-keypair.pem ~/Downloads/SFworkshop-keypair.pem ubuntu@<admin인스턴스의 퍼블릭IP>:~
 ```
 
 14. admin 인스턴스에 접속하여 키파일이 잘 복사되었는지 확인합니다. 
 ```
 # 로컬 PC에서 실행
-ssh -i ~/Downloads/SFworkshop-keypair.pem ubuntu@3.95.133.202 
+ssh -i ~/Downloads/SFworkshop-keypair.pem ubuntu@<admin인스턴스의 퍼블릭IP>
 
 # admin 인스턴스에서 확인 
 ls

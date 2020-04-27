@@ -75,7 +75,6 @@ make
 
 {{% /expand %}} 
 
-
 2. 대상 디바이스 (GGAD 인스턴스) 에서 로컬 프록시 설정을 확인하겠습니다. Cloud9의 GGAD 터미널로 이동합니다. 
 
 {{% notice warning %}}
@@ -88,7 +87,6 @@ cd ~/dependencies
 ls
 ```    
 ![securetunnel](/lab2/image/securetunnel_12.png)
-
 
 ### AWS 콘솔에서 보안 터널 열기 
 
@@ -124,8 +122,7 @@ ls
 
 ## AWS IoT 보안 터널링 테스트  
 
-11. 소스 인스턴스 (admin 인스턴스)에 접속을 해야합니다. 좋아하는 터미널을 이용해 인스턴스에 접속합니다. admin 인스턴스의 IP는 Cloudformation 의 출력탭에서 확인할 수 있습니다. 
-![securetunnel](/lab2/image/securetunnel_10.png)
+11. 소스 인스턴스 (admin 인스턴스)에 접속을 해야합니다. 좋아하는 터미널을 이용해 인스턴스에 접속합니다. 
 
 - admin 인스턴스의 IP는 Cloudformation 의 출력탭에서 확인할 수 있습니다. 
     ![securetunnel](/lab2/image/securetunnel_10.png)

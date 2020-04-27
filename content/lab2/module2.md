@@ -14,9 +14,6 @@ pre: "<b>2.2 </b>"
 ![ggadsetting](/lab2/image/ggad_setting_1.png)
 ![ggadsetting](/lab2/image/ggad_setting_2.png)
 
-3. 프롬프트를 통해 해당 터미널이 GGC(cloud9, *IAM User*가 나타남) 인스턴스인지 GGAD(EC2 instance, *ubuntu*가 나타남)인스턴스인지 확인하고, 필요시 GGC 인스턴스로 이동합니다. 
-
-
 4. 다음 명령어를 통해 다운받은 연결 키트를 GGAD 인스턴스로 복사합니다. 
 ```
 scp -i ~/environment/SFworkshop-keypair.pem ~/environment/connect_device_package.zip ubuntu@$GGAD_IP:~/
