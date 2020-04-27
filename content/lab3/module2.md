@@ -125,7 +125,7 @@ ls
 11. 소스 인스턴스 (admin 인스턴스)에 접속을 해야합니다. 좋아하는 터미널을 이용해 인스턴스에 접속합니다. 
 
 - admin 인스턴스의 IP는 Cloudformation 의 출력탭에서 확인할 수 있습니다. 
-    ![securetunnel](/lab2/image/securetunnel_10.png)
+    ![securetunnel](/lab2/image/securetunnel_28.png)
 
 - 예를들어, 하기 명령어와 사진의 작업은 MAC OS 의 기본 터미널에서 수행했습니다. 
 
