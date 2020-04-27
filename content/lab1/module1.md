@@ -73,7 +73,7 @@ pre: "<b>1.1 </b>"
 
 
 4. **SmartFactoryworkshop** 스택의 출력 탭에서 **Cloud9**의 값을 확인하고 클릭하여 접속합니다. 
-![cloudformation](/lab1/image/cloudformation_4.png)
+![cloudformation](/lab1/image/cloudformation_output_1.png)
 ![cloud9](/lab1/image/cloud9_1.png)
 
 {{% notice info %}}
@@ -90,7 +90,7 @@ chmod 400 ~/environment/SFworkshop-keypair.pem
 ```
 
 7. 원활한 워크샵 진행을 위해 cloudformation 으로 생성한 EC2 인스턴스의 private IP를 찾아 환경 변수로 설정합니다. 
-![cloudformation](/lab1/image/cloudformation_5.png)
+![cloudformation](/lab1/image/cloudformation_output_2.png)
 ```
 export GGAD_IP=<사설IP>
 ```
